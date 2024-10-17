@@ -6,10 +6,13 @@ namespace ElegantAI;
 
 public static class Program
 {
-    public static void Main(string[] args) => AppBuilder.Configure<App>()
-        .UsePlatformDetect()
-        .WithInterFont()
-        .Start(AppMain, args);
+    public static void Main(string[] args)
+    {
+        AppBuilder.Configure<App>()
+            .UsePlatformDetect()
+            .WithInterFont()
+            .Start(AppMain, args);
+    }
 
     private static void AppMain(Application app, string[] args)
     {
