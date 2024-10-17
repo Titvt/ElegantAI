@@ -8,7 +8,10 @@
     </Application.Styles>
     <TrayIcon.Icons>
         <TrayIcons>
-            <TrayIcon Icon="Assets/icon.png" ToolTipText="Elegant AI">
+            <TrayIcon
+                Clicked="OpenSettings"
+                Icon="Assets/Icon.ico"
+                ToolTipText="Elegant AI">
                 <TrayIcon.Menu>
                     <NativeMenu>
                         <NativeMenuItem Click="Exit" Header="Exit" />

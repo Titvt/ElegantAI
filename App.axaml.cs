@@ -15,4 +15,9 @@ public class App : Application
     {
         Environment.Exit(0);
     }
+
+    private void OpenSettings(object? sender, EventArgs e)
+    {
+        SettingsWindow.Open();
+    }
 }
