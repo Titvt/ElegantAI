@@ -38,7 +38,7 @@
                             Classes="Left"
                             Grid.Column="0"
                             Grid.Row="0">
-                            BASE_URL
+                            Base URL
                         </TextBlock>
                         <TextBox
                             Classes="Right"
@@ -49,13 +49,24 @@
                             Classes="Left"
                             Grid.Column="0"
                             Grid.Row="1">
-                            API_KEY
+                            API Key
                         </TextBlock>
                         <TextBox
                             Classes="Right"
                             Grid.Column="1"
                             Grid.Row="1"
                             Text="{Binding ApiKey}" />
+                        <TextBlock
+                            Classes="Left"
+                            Grid.Column="0"
+                            Grid.Row="2">
+                            Model
+                        </TextBlock>
+                        <TextBox
+                            Classes="Right"
+                            Grid.Column="1"
+                            Grid.Row="2"
+                            Text="{Binding Model}" />
                     </Grid>
                 </ScrollViewer>
             </TabItem>

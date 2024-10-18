@@ -53,4 +53,5 @@ public class Config
 {
     public string BaseUrl { get; init; } = "https://api.openai.com";
     public string ApiKey { get; init; } = "";
+    public string Model { get; init; } = "gpt-4o";
 }
