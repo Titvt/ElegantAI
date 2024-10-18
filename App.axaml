@@ -14,6 +14,7 @@
                 ToolTipText="Elegant AI">
                 <TrayIcon.Menu>
                     <NativeMenu>
+                        <NativeMenuItem Click="OpenSettings" Header="Settings" />
                         <NativeMenuItem Click="Exit" Header="Exit" />
                     </NativeMenu>
                 </TrayIcon.Menu>

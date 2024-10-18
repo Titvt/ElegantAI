@@ -16,6 +16,11 @@ public partial class SettingsWindow : Window
     {
         if (_instance is not null)
         {
+            if (_instance.WindowState == WindowState.Minimized)
+            {
+                _instance.WindowState = WindowState.Normal;
+            }
+
             _instance.Activate();
         }
         else
