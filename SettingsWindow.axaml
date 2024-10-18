@@ -1,7 +1,7 @@
 <Window
     Background="#80FFFFFF"
     ExtendClientAreaToDecorationsHint="True"
-    Padding="0,30,0,0"
+    Padding="0,30,0,15"
     Title="Elegant AI"
     TransparencyLevelHint="AcrylicBlur"
     WindowStartupLocation="CenterScreen"
@@ -14,7 +14,7 @@
     xmlns:namespace="clr-namespace:ElegantAI"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Window.Styles>
-        <Style Selector="Grid.Root">
+        <Style Selector="ScrollViewer.Root">
             <Setter Property="Margin" Value="0,10" />
         </Style>
         <Style Selector="TextBlock.Left">
@@ -25,38 +25,46 @@
             <Setter Property="Margin" Value="5" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
+        <Style Selector="Button.Bottom">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
     </Window.Styles>
-    <TabControl>
-        <TabItem Header="OpenAI">
-            <Grid
-                Classes="Root"
-                ColumnDefinitions="Auto,*"
-                RowDefinitions="Auto,Auto">
-                <TextBlock
-                    Classes="Left"
-                    Grid.Column="0"
-                    Grid.Row="0">
-                    BASE_URL
-                </TextBlock>
-                <TextBox
-                    Classes="Right"
-                    Grid.Column="1"
-                    Grid.Row="0"
-                    Text="{Binding BaseUrl}"
-                    TextChanged="OnBaseUrlChanged" />
-                <TextBlock
-                    Classes="Left"
-                    Grid.Column="0"
-                    Grid.Row="1">
-                    API_KEY
-                </TextBlock>
-                <TextBox
-                    Classes="Right"
-                    Grid.Column="1"
-                    Grid.Row="1"
-                    Text="{Binding ApiKey}"
-                    TextChanged="OnApiKeyChanged" />
-            </Grid>
-        </TabItem>
-    </TabControl>
+    <Grid RowDefinitions="*,Auto">
+        <TabControl Grid.Row="0">
+            <TabItem Header="OpenAI">
+                <ScrollViewer Classes="Root">
+                    <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
+                        <TextBlock
+                            Classes="Left"
+                            Grid.Column="0"
+                            Grid.Row="0">
+                            BASE_URL
+                        </TextBlock>
+                        <TextBox
+                            Classes="Right"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Text="{Binding BaseUrl}" />
+                        <TextBlock
+                            Classes="Left"
+                            Grid.Column="0"
+                            Grid.Row="1">
+                            API_KEY
+                        </TextBlock>
+                        <TextBox
+                            Classes="Right"
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Text="{Binding ApiKey}" />
+                    </Grid>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
+        <Button
+            Classes="Bottom"
+            Click="OnSaveClicked"
+            Grid.Row="1">
+            Save
+        </Button>
+    </Grid>
 </Window>

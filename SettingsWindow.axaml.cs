@@ -1,6 +1,6 @@
-using System;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 
 namespace ElegantAI;
 
@@ -37,25 +37,17 @@ public partial class SettingsWindow : Window
     {
         if (change.Property == WindowStateProperty)
         {
-            Padding = change.NewValue as WindowState? == WindowState.Maximized ? new Thickness(8, 31, 8, 8) : new Thickness(0, 30, 0, 0);
+            Padding = change.NewValue as WindowState? == WindowState.Maximized ? new Thickness(8, 31, 8, 23) : new Thickness(0, 30, 0, 15);
         }
 
         base.OnPropertyChanged(change);
     }
 
-    private void OnBaseUrlChanged(object? sender, TextChangedEventArgs e)
+    private void OnSaveClicked(object? sender, RoutedEventArgs e)
     {
         if (DataContext is SettingsWindowViewModel viewModel)
         {
-            Console.WriteLine(viewModel.BaseUrl);
-        }
-    }
-
-    private void OnApiKeyChanged(object? sender, TextChangedEventArgs e)
-    {
-        if (DataContext is SettingsWindowViewModel viewModel)
-        {
-            Console.WriteLine(viewModel.ApiKey);
+            viewModel.Save();
         }
     }
 }
