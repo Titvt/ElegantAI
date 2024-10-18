@@ -2,7 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
-namespace ElegantAI;
+namespace ElegantAI.Windows;
 
 public partial class SettingsWindow : Window
 {
@@ -49,5 +49,7 @@ public partial class SettingsWindow : Window
         {
             viewModel.Save();
         }
+
+        CaptureWindow.Capture();
     }
 }

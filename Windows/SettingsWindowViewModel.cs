@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace ElegantAI;
+namespace ElegantAI.Windows;
 
 public partial class SettingsWindowViewModel : ObservableObject
 {

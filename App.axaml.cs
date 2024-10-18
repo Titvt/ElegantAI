@@ -1,6 +1,7 @@
 using System;
 using Avalonia;
 using Avalonia.Markup.Xaml;
+using ElegantAI.Windows;
 
 namespace ElegantAI;
 

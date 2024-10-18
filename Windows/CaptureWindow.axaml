@@ -1,0 +1,17 @@
+<Window
+    KeyUp="OnKeyUp"
+    ShowInTaskbar="False"
+    SystemDecorations="None"
+    Title="Elegant AI"
+    Topmost="True"
+    WindowState="FullScreen"
+    mc:Ignorable="d"
+    x:Class="ElegantAI.Windows.CaptureWindow"
+    x:DataType="namespace:CaptureWindowViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:namespace="clr-namespace:ElegantAI.Windows"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Image Source="{Binding Source}" />
+</Window>
