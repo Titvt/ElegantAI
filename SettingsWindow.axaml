@@ -1,9 +1,11 @@
 <Window
     Background="#80FFFFFF"
     ExtendClientAreaToDecorationsHint="True"
+    Height="720"
     Padding="0,30,0,15"
     Title="Elegant AI"
     TransparencyLevelHint="AcrylicBlur"
+    Width="1280"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d"
     x:Class="ElegantAI.SettingsWindow"
