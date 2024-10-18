@@ -13,7 +13,7 @@ public static class Program
 
     private static void AppMain(Application app, string[] args)
     {
-        var cancellationTokenSource = new CancellationTokenSource();
-        app.Run(cancellationTokenSource.Token);
+        var tokenSource = new CancellationTokenSource();
+        app.Run(tokenSource.Token);
     }
 }

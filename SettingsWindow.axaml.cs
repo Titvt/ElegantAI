@@ -1,3 +1,4 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
 
@@ -10,6 +11,7 @@ public partial class SettingsWindow : Window
     private SettingsWindow()
     {
         InitializeComponent();
+        DataContext = new SettingsWindowViewModel();
     }
 
     public static void Open()
@@ -39,5 +41,21 @@ public partial class SettingsWindow : Window
         }
 
         base.OnPropertyChanged(change);
+    }
+
+    private void OnBaseUrlChanged(object? sender, TextChangedEventArgs e)
+    {
+        if (DataContext is SettingsWindowViewModel viewModel)
+        {
+            Console.WriteLine(viewModel.BaseUrl);
+        }
+    }
+
+    private void OnApiKeyChanged(object? sender, TextChangedEventArgs e)
+    {
+        if (DataContext is SettingsWindowViewModel viewModel)
+        {
+            Console.WriteLine(viewModel.ApiKey);
+        }
     }
 }

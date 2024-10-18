@@ -9,13 +9,13 @@
     <TrayIcon.Icons>
         <TrayIcons>
             <TrayIcon
-                Clicked="OpenSettings"
+                Clicked="OnSettingsClicked"
                 Icon="Assets/Icon.ico"
                 ToolTipText="Elegant AI">
                 <TrayIcon.Menu>
                     <NativeMenu>
-                        <NativeMenuItem Click="OpenSettings" Header="Settings" />
-                        <NativeMenuItem Click="Exit" Header="Exit" />
+                        <NativeMenuItem Click="OnSettingsClicked" Header="Settings" />
+                        <NativeMenuItem Click="OnExitClicked" Header="Exit" />
                     </NativeMenu>
                 </TrayIcon.Menu>
             </TrayIcon>

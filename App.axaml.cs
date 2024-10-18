@@ -11,13 +11,13 @@ public class App : Application
         AvaloniaXamlLoader.Load(this);
     }
 
-    private void Exit(object? sender, EventArgs e)
-    {
-        Environment.Exit(0);
-    }
-
-    private void OpenSettings(object? sender, EventArgs e)
+    private void OnSettingsClicked(object? sender, EventArgs e)
     {
         SettingsWindow.Open();
+    }
+
+    private void OnExitClicked(object? sender, EventArgs e)
+    {
+        Environment.Exit(0);
     }
 }
