@@ -21,7 +21,8 @@ public static class HotKey
             hInstance = Native.GetModuleHandleW(null),
             lpszClassName = Guid.NewGuid().ToString()
         };
-        HWnd = Native.CreateWindowExW(0, Native.RegisterClassExW(wndClass), null, 0, 0, 0, 0, 0, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
+        var className = Native.RegisterClassExW(wndClass);
+        HWnd = Native.CreateWindowExW(0, className, null, 0, 0, 0, 0, 0, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
     }
 
     public static void Register(Key key, KeyModifiers keyModifiers, Action action)

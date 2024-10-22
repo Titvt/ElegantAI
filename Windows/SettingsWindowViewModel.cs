@@ -10,7 +10,7 @@ public partial class SettingsWindowViewModel : ObservableObject
 
     public SettingsWindowViewModel()
     {
-        var config = Program.GetConfig();
+        var config = Config.GetConfig();
         BaseUrl = config.BaseUrl;
         ApiKey = config.ApiKey;
         Model = config.Model;
@@ -24,6 +24,6 @@ public partial class SettingsWindowViewModel : ObservableObject
             ApiKey = ApiKey,
             Model = Model
         };
-        Program.SetConfig(config);
+        Config.SetConfig(config);
     }
 }

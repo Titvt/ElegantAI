@@ -49,7 +49,5 @@ public partial class SettingsWindow : Window
         {
             viewModel.Save();
         }
-
-        CaptureWindow.Capture();
     }
 }

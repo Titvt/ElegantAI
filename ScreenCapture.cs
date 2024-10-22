@@ -17,6 +17,7 @@ public static class ScreenCapture
         var display = captureService.GetDisplays(graphicsCard).First();
         var screenCapture = captureService.GetScreenCapture(display);
         var captureZone = screenCapture.RegisterCaptureZone(0, 0, screenCapture.Display.Width, screenCapture.Display.Height);
+        screenCapture.CaptureScreen();
         Context = new ScreenCapturerContext
         {
             CaptureService = captureService,
@@ -25,7 +26,6 @@ public static class ScreenCapture
             ScreenCapture = screenCapture,
             CaptureZone = captureZone
         };
-        Context.ScreenCapture.CaptureScreen();
     }
 
     public static Stream CaptureScreen()
@@ -34,16 +34,18 @@ public static class ScreenCapture
 
         using (Context.CaptureZone.Lock())
         {
-            return new MemoryStream(Context.CaptureZone.Image.ToPng());
+            var buffer = Context.CaptureZone.Image.ToPng();
+            var memoryStream = new MemoryStream(buffer);
+            return memoryStream;
         }
     }
-}
 
-public struct ScreenCapturerContext
-{
-    public DX11ScreenCaptureService CaptureService;
-    public GraphicsCard GraphicsCard;
-    public Display Display;
-    public DX11ScreenCapture ScreenCapture;
-    public CaptureZone<ColorBGRA> CaptureZone;
+    private struct ScreenCapturerContext
+    {
+        public DX11ScreenCaptureService CaptureService;
+        public GraphicsCard GraphicsCard;
+        public Display Display;
+        public DX11ScreenCapture ScreenCapture;
+        public CaptureZone<ColorBGRA> CaptureZone;
+    }
 }
