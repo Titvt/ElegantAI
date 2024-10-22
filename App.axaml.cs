@@ -1,7 +1,6 @@
 using System;
 using Avalonia;
 using Avalonia.Markup.Xaml;
-using ElegantAI.Windows;
 
 namespace ElegantAI;
 
@@ -14,7 +13,7 @@ public class App : Application
 
     private void OnSettingsClicked(object? sender, EventArgs e)
     {
-        SettingsWindow.Open();
+        WindowManager.OpenSettingsWindow();
     }
 
     private void OnExitClicked(object? sender, EventArgs e)

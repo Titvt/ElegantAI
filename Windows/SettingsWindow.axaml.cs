@@ -6,31 +6,10 @@ namespace ElegantAI.Windows;
 
 public partial class SettingsWindow : Window
 {
-    private static SettingsWindow? _instance;
-
-    private SettingsWindow()
+    public SettingsWindow()
     {
         InitializeComponent();
         DataContext = new SettingsWindowViewModel();
-    }
-
-    public static void Open()
-    {
-        if (_instance is not null)
-        {
-            if (_instance.WindowState == WindowState.Minimized)
-            {
-                _instance.WindowState = WindowState.Normal;
-            }
-
-            _instance.Activate();
-        }
-        else
-        {
-            _instance = new SettingsWindow();
-            _instance.Closed += (_, _) => _instance = null;
-            _instance.Show();
-        }
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
