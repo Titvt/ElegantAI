@@ -9,7 +9,7 @@ public partial class CaptureWindowViewModel : ObservableObject
 
     public CaptureWindowViewModel()
     {
-        using var stream = Program.CaptureScreen();
+        using var stream = ScreenCapture.CaptureScreen();
         Source = new Bitmap(stream);
     }
 }
