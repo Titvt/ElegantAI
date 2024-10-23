@@ -29,6 +29,12 @@ public static class HotKey
     {
         var virtualKey = KeyInterop.VirtualKeyFromKey(key);
         var id = virtualKey + ((int)keyModifiers << 16);
+
+        if (HotKeys.ContainsKey(id))
+        {
+            Unregister(key, keyModifiers);
+        }
+
         Native.RegisterHotKey(HWnd, id, (uint)keyModifiers, (uint)virtualKey);
         HotKeys.Add(id, action);
     }
