@@ -1,5 +1,6 @@
 using System.IO;
 using System.Linq;
+using Avalonia.Media.Imaging;
 using HPPH;
 using HPPH.SkiaSharp;
 using ScreenCapture.NET;
@@ -28,15 +29,16 @@ public static class ScreenCapture
         };
     }
 
-    public static Stream CaptureScreen()
+    public static Bitmap CaptureScreen()
     {
         Context.ScreenCapture.CaptureScreen();
 
         using (Context.CaptureZone.Lock())
         {
             var buffer = Context.CaptureZone.Image.ToPng();
-            var memoryStream = new MemoryStream(buffer);
-            return memoryStream;
+            using var memoryStream = new MemoryStream(buffer);
+            var bitmap = new Bitmap(memoryStream);
+            return bitmap;
         }
     }
 
